@@ -1,0 +1,681 @@
+<!DOCTYPE html><html lang="zh_CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>追番列表 | Jrebel</title><meta name="keywords" content="大数据，笔记"><meta name="author" content="Jrebel-i"><meta name="copyright" content="Jrebel-i"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta name="description" content="生命不息，追番不止！        .bangumi-tabs{margin-bottom:15px;margin-top:15px}.bangumi-tab{padding:5px}a.bangumi-tab{text-decoration:none}.bangumi-active{background:#657b83;color:#fff}.bangumi-item{positio">
+<meta property="og:type" content="website">
+<meta property="og:title" content="追番列表">
+<meta property="og:url" content="https://www.jrebe.com/bangumis/index.html">
+<meta property="og:site_name" content="Jrebel">
+<meta property="og:description" content="生命不息，追番不止！        .bangumi-tabs{margin-bottom:15px;margin-top:15px}.bangumi-tab{padding:5px}a.bangumi-tab{text-decoration:none}.bangumi-active{background:#657b83;color:#fff}.bangumi-item{positio">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.jrebe.com/img/a2.jpg">
+<meta property="article:author" content="Jrebel-i">
+<meta property="article:tag" content="大数据，笔记">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.jrebe.com/img/a2.jpg"><link rel="shortcut icon" href="/img/a2.jpg"><link rel="canonical" href="https://www.jrebe.com/bangumis/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//s4.cnzz.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="preconnect" href="//zz.bdstatic.com"/><meta name="google-site-verification" content="vTXhlUyXWAevHk5kfAOIeCf_bU8azYJgO1EDl6FqoFQ"/><meta name="baidu-site-verification" content="code-FGas11tgLy"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?06c5cec9a1f6f5c54312351f0f1e821f";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=HKLD5RYMQB"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'HKLD5RYMQB');
+</script><script async="async" data-pjax="data-pjax" src="https://s4.cnzz.com/z_stat.php?id=1279576358&amp;web_id=1279576358"></script><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  noticeOutdate: {"limitDay":365,"position":"top","messagePrev":"It has been","messageNext":"days since the last update, the content of the article may be outdated."},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: 'days',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"Author: Jrebel-i","link":"Link: ","source":"Source: Jrebel","info":"Copyright is owned by the author. For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source."}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"Traditional Chinese Activated Manually","cht_to_chs":"Simplified Chinese Activated Manually","day_to_night":"Dark Mode Activated Manually","night_to_day":"Light Mode Activated Manually","bgLight":"#49b1f5","bgDark":"#121212","position":"bottom-left"},
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: false,
+  isanchor: true
+};
+
+var saveToLocal = {
+  set: function setWithExpiry(key, value, ttl) {
+    const now = new Date()
+    const expiryDay = ttl * 86400000
+    const item = {
+      value: value,
+      expiry: now.getTime() + expiryDay,
+    }
+    localStorage.setItem(key, JSON.stringify(item))
+  },
+
+  get: function getWithExpiry(key) {
+    const itemStr = localStorage.getItem(key)
+
+    if (!itemStr) {
+      return undefined
+    }
+    const item = JSON.parse(itemStr)
+    const now = new Date()
+
+    if (now.getTime() > item.expiry) {
+      localStorage.removeItem(key)
+      return undefined
+    }
+    return item.value
+  }
+}
+
+// https://stackoverflow.com/questions/16839698/jquery-getscript-alternative-in-native-javascript
+const getScript = url => new Promise((resolve, reject) => {
+  const script = document.createElement('script')
+  script.src = url
+  script.async = true
+  script.onerror = reject
+  script.onload = script.onreadystatechange = function() {
+    const loadState = this.readyState
+    if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+    script.onload = script.onreadystatechange = null
+    resolve()
+  }
+  document.head.appendChild(script)
+})</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+  isPost: false,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2021-01-23 10:56:27'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(function () {  window.activateDarkMode = function () {
+    document.documentElement.setAttribute('data-theme', 'dark')
+    if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+    }
+  }
+  window.activateLightMode = function () {
+    document.documentElement.setAttribute('data-theme', 'light')
+   if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+    }
+  }
+  const autoChangeMode = 'false'
+  const t = saveToLocal.get('theme')
+  if (autoChangeMode === '1') {
+    const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+    const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+    const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+    if (t === undefined) {
+      if (isLightMode) activateLightMode()
+      else if (isDarkMode) activateDarkMode()
+      else if (isNotSpecified || hasNoSupport) {
+        const now = new Date()
+        const hour = now.getHours()
+        const isNight = hour <= 6 || hour >= 18
+        isNight ? activateDarkMode() : activateLightMode()
+      }
+      window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+        if (saveToLocal.get('theme') === undefined) {
+          e.matches ? activateDarkMode() : activateLightMode()
+        }
+      })
+    } else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else if (autoChangeMode === '2') {
+    const now = new Date()
+    const hour = now.getHours()
+    const isNight = hour <= 6 || hour >= 18
+    if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+    else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else {
+    if (t === 'dark') activateDarkMode()
+    else if (t === 'light') activateLightMode()
+  }const asideStatus = saveToLocal.get('aside-status')
+if (asideStatus !== undefined) {
+   if (asideStatus === 'hide') {
+     document.documentElement.classList.add('hide-aside')
+   } else {
+     document.documentElement.classList.remove('hide-aside')
+   }
+}const fontSizeVal = saveToLocal.get('global-font-size')
+if (fontSizeVal !== undefined) {
+  document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+}})()</script><style type="text/css">#toggle-sidebar {bottom: 80px}</style><link rel="stylesheet" href="/css/badge.css"><link rel="stylesheet" href="/css/tag.css"><link rel="stylesheet" href="/css/aplayerdiy.css"><link rel="stylesheet" href="/css/mousediy.css"><!--脚本--><script src="/live2d-widget/autoload.js"></script><!--script(src=’https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js‘)--><meta name="generator" content="Hexo 5.3.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">Loading...</div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="/img/a2.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">2</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 娱乐</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/bangumis/"><i class="fa-fw fas fa-tv"></i><span> 番剧</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div id="body-wrap"><header class="not-index-bg" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Jrebel</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 娱乐</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/bangumis/"><i class="fa-fw fas fa-tv"></i><span> 番剧</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="page-site-info"><h1 id="site-title">追番列表</h1></div></header><main class="layout" id="content-inner"><div id="page"><div id="article-container">
+<blockquote>
+    <p>生命不息，追番不止！</p>
+</blockquote>
+
+<style>
+    .bangumi-tabs{margin-bottom:15px;margin-top:15px}.bangumi-tab{padding:5px}a.bangumi-tab{text-decoration:none}.bangumi-active{background:#657b83;color:#fff}.bangumi-item{position:relative;clear:both;min-height:170px;padding:10px 0;border-bottom:1px solid #ddd}@media screen and (max-width:600px){.bangumi-item{width:100%}}.bangumi-picture{position:absolute;left:0;top:10px;width:110px}.bangumi-info{padding-left:120px}.bangumi-meta{font-size:12px;padding-right:10px}.bangumi-comments{font-size:12px}.bangumi-pagination{margin-top:15px;text-align:center;margin-bottom:10px}.bangumi-button{padding:5px}.bangumi-button:hover{background:#657b83;color:#fff}.bangumi-hide{display:none}.bangumi-show{display:block}.bangumi-title{font-size:18px}.bangumi-title a{line-height:1;text-decoration:none}.bangumi-info-items{font-size:12px;color:#2fd8d8;padding-top:10px;line-height:1;float:left;width:100%}.bangumi-info-item{display:inline-block;width:13%;border-right:1px solid #2fd8d8;text-align:center;height:34px}.bangumi-info-label{display:block;line-height:12px}.bangumi-info-item em{display:block;padding-top:6px;line-height:17px;font-style:normal;font-weight:700}.bangumi-info-total{padding-top:11px;display:block;line-height:12px}.bangumi-info-item-score{border-right:1px solid #0000;width:50px}.bangumi-info-label-em{color:transparent;opacity:0;visibility:hidden;line-height:6px!important;padding:0!important}@media (max-width:650px){.bangumi-coin{display:none}.bangumi-info-item{width:16%}}@media (max-width:590px){.bangumi-danmaku{display:none}.bangumi-info-item{width:19%}}@media (max-width:520px){.bangumi-play{display:none}.bangumi-info-item{width:24%}}@media (max-width:480px){.bangumi-follow{display:none}.bangumi-info-item{width:30%}}@media (max-width:400px){.bangumi-area{display:none}.bangumi-info-item{width:45%}}
+</style>
+<div class="bangumi-tabs">
+    <a class="bangumi-tab" id="bangumi-tab1" href="javascript:;" rel="external" target="_self" onclick="return false">
+    wantWatch
+    (0)</a>
+    <a class="bangumi-tab" id="bangumi-tab2" href="javascript:;" rel="external" target="_self" onclick="return false">
+        watching
+        (3)</a>
+    <a class="bangumi-tab" id="bangumi-tab3" href="javascript:;" rel="external" target="_self" onclick="return false">
+        watched
+        (0)</a>
+</div>
+<div>
+    <div id="bangumi-item1">
+        
+        <div class="bangumi-pagination">
+    <a class="bangumi-button bangumi-firstpage" href="javascript:;" target="_self" onclick="return false"> top</a>
+    <a class="bangumi-button bangumi-previouspage" href="javascript:;" target="_self" onclick="return false">prev</a>
+    <span class="bangumi-pagenum">2 / 3</span>
+    <a class="bangumi-button bangumi-nextpage" href="javascript:;" target="_self" onclick="return false">next</a>
+    <a class="bangumi-button bangumi-lastpage" href="javascript:;" target="_self" onclick="return false">end</a>
+</div>
+    </div>
+    <div id="bangumi-item2">
+        
+        <div class="bangumi-item">
+    <div class="bangumi-picture"><img src="/img/bangumi-loading.gif" data-src="https://i0.hdslb.com/bfs/bangumi/image/0d019f2bff3b83ee2b1b0c44c3bb1ee04b425edc.jpg@220w_280h.webp" referrerPolicy="no-referrer" width="110"/>
+    </div>
+    <div class="bangumi-info">
+        <div class="bangumi-title">
+            <a target="_blank" href="https://www.bilibili.com/bangumi/media/md28230717/">百妖谱 第二季</a>
+        </div>
+        <div class="bangumi-meta">
+            <span class="bangumi-info-items" >
+                <span class="bangumi-info-item">
+                
+                <span class="bangumi-info-total">未完结</span><em
+                        class="bangumi-info-label-em">0</em>
+                </span>
+                
+                
+                <span class="bangumi-info-item bangumi-area">
+                    <span class="bangumi-info-label">国创</span> <em>中国大陆</em>
+                </span>
+                
+                <span class="bangumi-info-item bangumi-play">
+                    <span class="bangumi-info-label">总播放</span> <em>126.2 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-follow">
+                    <span class="bangumi-info-label">追番人数</span> <em>344.1 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-coin">
+                    <span class="bangumi-info-label">硬币数</span> <em>8234</em>
+                </span>
+                <span class="bangumi-info-item bangumi-danmaku">
+                    <span class="bangumi-info-label">弹幕总数</span> <em>2891</em>
+                </span>
+                <span class="bangumi-info-item bangumi-info-item-score">
+                    <span class="bangumi-info-label">评分</span> <em>暂无评分</em>
+                </span>
+            </span>
+        </div>
+        <div class="bangumi-comments" ><br/>简介： 桃夭带着小和尚磨牙、第一季收服的小狐妖、桃都老邻居柳公子一起，为了寻找失踪的百妖谱而云游四方。在途中遇到应声、化蛇、媪姬、照海四个妖怪，为妖怪治疗各种疑难杂症。... </div>
+    </div>
+</div>
+
+        
+        <div class="bangumi-item">
+    <div class="bangumi-picture"><img src="/img/bangumi-loading.gif" data-src="https://i0.hdslb.com/bfs/bangumi/image/ec5843a1ac1d92fd5c58f5e3d962a99e52557351.jpg@220w_280h.webp" referrerPolicy="no-referrer" width="110"/>
+    </div>
+    <div class="bangumi-info">
+        <div class="bangumi-title">
+            <a target="_blank" href="https://www.bilibili.com/bangumi/media/md4313762/">百妖谱</a>
+        </div>
+        <div class="bangumi-meta">
+            <span class="bangumi-info-items" >
+                <span class="bangumi-info-item">
+                
+                <span class="bangumi-info-total">全12话</span><em
+                        class="bangumi-info-label-em">0</em>
+                </span>
+                
+                
+                <span class="bangumi-info-item bangumi-area">
+                    <span class="bangumi-info-label">国创</span> <em>中国大陆</em>
+                </span>
+                
+                <span class="bangumi-info-item bangumi-play">
+                    <span class="bangumi-info-label">总播放</span> <em>1.1 亿</em>
+                </span>
+                <span class="bangumi-info-item bangumi-follow">
+                    <span class="bangumi-info-label">追番人数</span> <em>342.5 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-coin">
+                    <span class="bangumi-info-label">硬币数</span> <em>56.3 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-danmaku">
+                    <span class="bangumi-info-label">弹幕总数</span> <em>100.0 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-info-item-score">
+                    <span class="bangumi-info-label">评分</span> <em>9.3</em>
+                </span>
+            </span>
+        </div>
+        <div class="bangumi-comments" ><br/>简介：灵医桃夭，善恶如谜。金铃过处，片甲不留。
+讲百种妖怪，述世间沧桑。
+她是所有妖怪的救星，也是所有妖怪的噩梦。
+她带着磨牙小和尚行走江湖，也是灵医桃夭。
+桃都灵医桃夭只治妖怪不治人，她带着小和尚磨牙一起... </div>
+    </div>
+</div>
+
+        
+        <div class="bangumi-item">
+    <div class="bangumi-picture"><img src="/img/bangumi-loading.gif" data-src="https://i0.hdslb.com/bfs/bangumi/becda7a59d0fe317c51a6e357857cffca20fa0d4.jpg@220w_280h.webp" referrerPolicy="no-referrer" width="110"/>
+    </div>
+    <div class="bangumi-info">
+        <div class="bangumi-title">
+            <a target="_blank" href="https://www.bilibili.com/bangumi/media/md9192/">DARLING in the FRANXX（僅限港澳台地區）</a>
+        </div>
+        <div class="bangumi-meta">
+            <span class="bangumi-info-items" >
+                <span class="bangumi-info-item">
+                
+                <span class="bangumi-info-total">全24话</span><em
+                        class="bangumi-info-label-em">0</em>
+                </span>
+                
+                
+                <span class="bangumi-info-item bangumi-area">
+                    <span class="bangumi-info-label">番剧</span> <em>日本</em>
+                </span>
+                
+                <span class="bangumi-info-item bangumi-play">
+                    <span class="bangumi-info-label">总播放</span> <em>558.5 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-follow">
+                    <span class="bangumi-info-label">追番人数</span> <em>108.3 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-coin">
+                    <span class="bangumi-info-label">硬币数</span> <em>4.7 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-danmaku">
+                    <span class="bangumi-info-label">弹幕总数</span> <em>25.7 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-info-item-score">
+                    <span class="bangumi-info-label">评分</span> <em>8.9</em>
+                </span>
+            </span>
+        </div>
+        <div class="bangumi-comments" ><br/>简介：遥远的未来，人类在荒废的大地上建设了移动要塞都市“种植园”，并讴歌着文明。在那当中建造的驾驶员居住设施“米斯特汀”，通称“鸟笼”。孩子们就住在那里，他们被告知的使命，只有战斗。敌人是一切都被谜团覆盖的... </div>
+    </div>
+</div>
+
+        
+        <div class="bangumi-pagination">
+    <a class="bangumi-button bangumi-firstpage" href="javascript:;" target="_self" onclick="return false"> top</a>
+    <a class="bangumi-button bangumi-previouspage" href="javascript:;" target="_self" onclick="return false">prev</a>
+    <span class="bangumi-pagenum">2 / 3</span>
+    <a class="bangumi-button bangumi-nextpage" href="javascript:;" target="_self" onclick="return false">next</a>
+    <a class="bangumi-button bangumi-lastpage" href="javascript:;" target="_self" onclick="return false">end</a>
+</div>
+    </div>
+    <div id="bangumi-item3">
+        
+        <div class="bangumi-pagination">
+    <a class="bangumi-button bangumi-firstpage" href="javascript:;" target="_self" onclick="return false"> top</a>
+    <a class="bangumi-button bangumi-previouspage" href="javascript:;" target="_self" onclick="return false">prev</a>
+    <span class="bangumi-pagenum">2 / 3</span>
+    <a class="bangumi-button bangumi-nextpage" href="javascript:;" target="_self" onclick="return false">next</a>
+    <a class="bangumi-button bangumi-lastpage" href="javascript:;" target="_self" onclick="return false">end</a>
+</div>
+    </div>
+</div>
+<script>
+    "use strict";Element.prototype.siblings=function(){for(var a=[],b=this.parentNode.children,c=0;c<b.length;c++)b[c]!==this&&a.push(b[c]);return a};function tabClick(){this.classList.add("bangumi-active");for(var a=this.siblings(),b=0;b<a.length;b++)a[b].classList.remove("bangumi-active");// 显示对应板块
+var c=this.id.replace("tab","item"),d=document.getElementById(c);d.classList.remove("bangumi-hide"),d.classList.add("bangumi-show"),a=document.getElementById(c).siblings();for(var e=0;e<a.length;e++)a[e].classList.remove("bangumi-show"),a[e].classList.add("bangumi-hide")}for(var tabs=document.getElementsByClassName("bangumi-tab"),i=0;i<tabs.length;i++)tabs[i].onclick=tabClick,tabs[i].onclick.apply(tabs[i]);
+
+    tabs[1].click();
+    "use strict";var firstpages=document.getElementsByClassName("bangumi-firstpage"),previouspages=document.getElementsByClassName("bangumi-previouspage"),nextpages=document.getElementsByClassName("bangumi-nextpage"),lastpages=document.getElementsByClassName("bangumi-lastpage"),pagenums=document.getElementsByClassName("bangumi-pagenum");function makePageNum(a,b){var c=Math.ceil;return a+1+" / "+c(0==b.length/10?1:c(b.length/10))}function firstBtn(){var a=this.parentNode.siblings();displayPage(a,0),this.parentNode.getElementsByClassName("bangumi-pagenum")[0].innerText=makePageNum(0,a)}function previousBtn(){var a=this.parentNode.siblings(),b=this.parentNode.getElementsByClassName("bangumi-pagenum")[0].innerText;b=b.substr(0,b.indexOf("/")-1),b=parseInt(b,10)-1,0<b&&b--,displayPage(a,b),this.parentNode.getElementsByClassName("bangumi-pagenum")[0].innerText=makePageNum(b,a)}function nextBtn(){var a=this.parentNode.siblings(),b=this.parentNode.getElementsByClassName("bangumi-pagenum")[0].innerText;b=b.substr(0,b.indexOf("/")-1),b=parseInt(b,10)-1,b<Math.ceil(a.length/10)-1&&b++,displayPage(a,b),this.parentNode.getElementsByClassName("bangumi-pagenum")[0].innerText=makePageNum(b,a)}function lastBtn(){var a=Math.ceil,b=this.parentNode.siblings();displayPage(b,a(b.length/10)-1),this.parentNode.getElementsByClassName("bangumi-pagenum")[0].innerText=makePageNum(-1==a(b.length/10)-1?0:a(b.length/10)-1,b)}function displayPage(a,b){for(var c=0;c<a.length;c++)if(Math.floor(c/10)===b){a[c].classList.remove("bangumi-hide");var d=a[c].getElementsByTagName("img")[0];d.src=d.getAttribute("data-src")}else a[c].classList.add("bangumi-hide")}for(var i=0;i<firstpages.length;i++){firstpages[i].onclick=firstBtn,previouspages[i].onclick=previousBtn,nextpages[i].onclick=nextBtn,lastpages[i].onclick=lastBtn;// set page num
+var size=pagenums[i].parentNode.siblings().length;pagenums[i].innerText="1 / "+(0===Math.ceil(size/10)?1:Math.ceil(size/10)),firstpages[i].click()}
+
+</script>
+</div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> Comment</span></div><div id="comment-switch"><span class="first-comment">Valine</span><span class="switch-btn"></span><span class="second-comment">Disqus</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div><div><div id="disqus_thread"></div></div></div></div></div><div class="aside_content" id="aside_content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><img class="avatar-img" src="/img/a2.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Jrebel-i</div><div class="author-info__description">这是一个分享大数据笔记的网站</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">2</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Jrebel-i"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Jrebel-i" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:2410143559@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="tencent://AddContact/?fromId=45&amp;fromSubId=1&amp;subcmd=all&amp;uin=2410143559&amp;website=www.oicqzone.com" target="_blank" title="QQ"><i class="fab fa-qq"></i></a><a class="social-icon" href="https://music.163.com/#/user/home?id=592945545" target="_blank" title="cloud-music"><i class="fas fa-music"></i></a><a class="social-icon" href="https://space.bilibili.com/152407695" target="_blank" title="bilibibli"><i class="fas fa-tv"></i></a></div></div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="card-content"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/56e0c1a5/" title="集群搭建"><img src="https://myimg-jrebe.oss-cn-shenzhen.aliyuncs.com/img/b1.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="集群搭建"/></a><div class="content"><a class="title" href="/posts/56e0c1a5/" title="集群搭建">集群搭建</a><time datetime="2021-01-10T12:12:53.000Z" title="Created 2021-01-10 20:12:53">2021-01-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/56e0b1a5/" title="Kafka总结"><img src="https://myimg-jrebe.oss-cn-shenzhen.aliyuncs.com/img/201025115Q8-1.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Kafka总结"/></a><div class="content"><a class="title" href="/posts/56e0b1a5/" title="Kafka总结">Kafka总结</a><time datetime="2021-01-09T04:36:53.000Z" title="Created 2021-01-09 12:36:53">2021-01-09</time></div></div></div></div></div><!--!=partial('includes/widget/card_newest_comment', {}, {cache:theme.fragment_cache})--><div class="card-widget card-archives"><div class="card-content"><div class="item-headline"><i class="fas fa-archive"></i><span>Archives</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/01/"><span class="card-archive-list-date">一月 2021</span><span class="card-archive-list-count">2</span></a></li></ul></div></div><div class="card-widget card-webinfo"><div class="card-content"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article :</div><div class="item-count">2</div></div><div class="webinfo-item"><div class="item-name">Run time :</div><div class="item-count" id="runtimeshow" data-publishDate="2020-12-27T16:00:00.000Z"></div></div><div class="webinfo-item"><div class="item-name">Total Count :</div><div class="item-count">4k</div></div><div class="webinfo-item"><div class="item-name">UV :</div><div class="item-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="item-name">PV :</div><div class="item-count" id="busuanzi_value_site_pv"></div></div><div class="webinfo-item"><div class="item-name">Last Push :</div><div class="item-count" id="last-push-date" data-lastPushDate="2021-01-23T02:56:27.601Z"></div></div></div></div></div></div><!--if theme.aside.card_map//!=partial('includes/widget/card_map', {}, {cache:theme.fragment_cache})--><!--if theme.aside.card_pixiv//!=partial('includes/widget/card_pixiv', {}, {cache:theme.fragment_cache})--><!--if theme.aside.card_calendar//!=partial('includes/widget/card_calendar', {}, {cache:theme.fragment_cache})--></div></main><footer id="footer" style="background: rgba(255,255,255,0.1)"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By Jrebel-i</div><div class="footer_custom_text">本网站由<a  target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral"><img class="icp-icon"  src="https://myimg-jrebe.oss-cn-shenzhen.aliyuncs.com/img/又拍云_logo6.png"></a>提供CND加速/云存储服务</div><div id="running-time"></div><div class="github-badge"><a style="color: #fff" rel="license" href="https://hexo.io/" target="_blank" title="由 Hexo 强力驱动"><span class="badge-subject">Powered</span><span class="badge-value bg-blue">Hexo</span></a><a style="color: #fff" rel="license" href="https://gitee.com/" target="_blank" title="静态网页托管于 GitHub Pages 和 Coding Pages 和 Gitee Pages"><span class="badge-subject">Hosted</span><span class="badge-value bg-brightgreen">GitHub & Coding & Gitee</span></a><a style="color: #fff" rel="license" href="https://www.jsdelivr.com/" target="_blank" title="jsDelivr 提供 CDN 加速服务"><span class="badge-subject">CDN</span><span class="badge-value bg-orange">jsDelivr</span></a><a style="color: #fff" rel="license" href="https://jerryc.me" target="_blank" title="站点使用 Butterfly主题"><span class="badge-subject">Theme</span><span class="badge-value bg-blue">Butterfly</span></a><a style="color: #fff" rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="本站点采用知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议进行许可"><span class="badge-subject"><i class="fa fa-copyright"></i></span><span class="badge-value bg-lightgrey">BY-NC-SA 4.0</span></a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="font-plus" type="button" title="Increase font size"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="Decrease font size"><i class="fas fa-minus"></i></button><button id="translateLink" type="button" title="Toggle Between Traditional Chinese And Simplified Chinese">简</button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button id="chat_btn" type="button" title="rightside.chat_btn"><i class="fas fa-sms"></i></button><a id="to_comment" href="#post-comment" title="Scroll To Comments"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',()=> {preloader.endLoading()})</script><div class="js-pjax"><script>if (document.getElementsByClassName('mermaid').length) {
+  if (window.mermaidJsLoad) mermaid.init()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js').then(() => {
+      window.mermaidJsLoad = true
+      mermaid.initialize({
+        theme: 'default',
+      })
+      true && mermaid.init()
+    })
+  }
+}</script><script>function loadValine () {
+  function initValine () {
+    let initData = {
+      el: '#vcomment',
+      appId: 'FNYRrkthB8eNbPsEsxg4wpOY-MdYXbMMI',
+      appKey: '9mBAkYJCqPoHuIyaFefeIMk9',
+      placeholder: '建议使用QQ邮箱，评论头像采用QQ头像',
+      avatar: 'monsterid',
+      meta: 'nick,mail,link'.split(','),
+      pageSize: '10',
+      lang: 'zh-CN',
+      recordIP: false,
+      serverURLs: '',
+      emojiCDN: '',
+      emojiMaps: {
+      "tv_摆动": "https://cdn.jsdelivr.net/gh/lete114/CDN/emoji/1.gif",
+      "tv_蔑笑": "https://cdn.jsdelivr.net/gh/lete114/CDN/emoji/001.png",
+      "tv_礼物": "https://cdn.jsdelivr.net/gh/lete114/CDN/emoji/002.png",
+      "tv_震惊": "https://cdn.jsdelivr.net/gh/lete114/CDN/emoji/003.png",
+      "tv_膜拜": "https://cdn.jsdelivr.net/gh/lete114/CDN/emoji/104.jpg",
+      "tv_哒哒哒": "https://cdn.jsdelivr.net/gh/lete114/CDN/emoji/106.gif",
+      "tv_一杯热茶": "https://cdn.jsdelivr.net/gh/lete114/CDN/emoji/004.png",
+      "tv_疑问": "https://cdn.jsdelivr.net/gh/lete114/CDN/emoji/005.png",
+      "tv_气氛": "https://cdn.jsdelivr.net/gh/lete114/CDN/emoji/006.png",
+      "bilibili_face-2020": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/2020.png",
+      "bilibili_face-doge": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/doge.png",
+      "bilibili_face-ok": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/ok.png",
+      "bilibili_face-yes": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/yes.png",
+      "bilibili_face-偷笑": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/偷笑.png",
+      "bilibili_face-傲娇": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/傲娇.png",
+      "bilibili_face-再见": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/再见.png",
+      "bilibili_face-冷": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/冷.png",
+      "bilibili_face-口罩": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/口罩.png",
+      "bilibili_face-可乐": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/可乐.png",
+      "bilibili_face-吃瓜": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/吃瓜.png",
+      "bilibili_face-吐": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/吐.png",
+      "bilibili_face-吓": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/吓.png",
+      "bilibili_face-呆": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/呆.png",
+      "bilibili_face-呲牙": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/呲牙.png",
+      "bilibili_face-哈欠": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/哈欠.png",
+      "bilibili_face-响指": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/响指.png",
+      "bilibili_face-喜极而泣": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/喜极而泣.png",
+      "bilibili_face-喜欢": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/喜欢.png",
+      "bilibili_face-嘘声": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/嘘声.png",
+      "bilibili_face-囧": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/囧.png",
+      "bilibili_face-大哭": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/大哭.png",
+      "bilibili_face-大笑": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/大笑.png",
+      "bilibili_face-大闹": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/大闹.png",
+      "bilibili_face-奋斗": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/奋斗.png",
+      "bilibili_face-奸笑": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/奸笑.png",
+      "bilibili_face-妙啊": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/妙啊.png",
+      "bilibili_face-委屈": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/委屈.png",
+      "bilibili_face-嫌弃": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/嫌弃.png",
+      "bilibili_face-害羞": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/害羞.png",
+      "bilibili_face-寒冷": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/寒冷.png",
+      "bilibili_face-尴尬": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/尴尬.png",
+      "bilibili_face-开心": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/开心.png",
+      "bilibili_face-弹弹堂": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/弹弹堂.png",
+      "bilibili_face-微微笑": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/微微笑.png",
+      "bilibili_face-微笑": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/微笑.png",
+      "bilibili_face-思考": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/思考.png",
+      "bilibili_face-惊呆了": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/惊呆了.png",
+      "bilibili_face-惊喜": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/惊喜.png",
+      "bilibili_face-惊讶": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/惊讶.png",
+      "bilibili_face-打call": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/打call.png",
+      "bilibili_face-抠鼻": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/抠鼻.png",
+      "bilibili_face-抱拳": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/抱拳.png",
+      "bilibili_face-拜托": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/拜托.png",
+      "bilibili_face-拥抱": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/拥抱.png",
+      "bilibili_face-捂脸": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/捂脸.png",
+      "bilibili_face-撇嘴": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/撇嘴.png",
+      "bilibili_face-支持": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/支持.png",
+      "bilibili_face-无奈": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/无奈.png",
+      "bilibili_face-无语": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/无语.png",
+      "bilibili_face-期待": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/期待.png",
+      "bilibili_face-武汉加油": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/武汉加油.png",
+      "bilibili_face-滑稽": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/滑稽.png",
+      "bilibili_face-灵魂出窍": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/灵魂出窍.png",
+      "bilibili_face-点赞": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/点赞.png",
+      "bilibili_face-爱心": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/爱心.png",
+      "bilibili_face-生气": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/生气.png",
+      "bilibili_face-生病": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/生病.png",
+      "bilibili_face-画风突变": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/画风突变.png",
+      "bilibili_face-疑问": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/疑问.png",
+      "bilibili_face-疼": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/疼.png",
+      "bilibili_face-白眼": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/白眼.png",
+      "bilibili_face-福": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/福.png",
+      "bilibili_face-福到了": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/福到了.png",
+      "bilibili_face-笑哭": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/笑哭.png",
+      "bilibili_face-肌肉": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/肌肉.png",
+      "bilibili_face-脸红": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/脸红.png",
+      "bilibili_face-调皮": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/调皮.png",
+      "bilibili_face-跪": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/跪.png",
+      "bilibili_face-酷": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/酷.png",
+      "bilibili_face-酸了": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/酸了.png",
+      "bilibili_face-锦鲤": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/锦鲤.png",
+      "bilibili_face-阴险": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/阴险.png",
+      "bilibili_face-难过": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/难过.png",
+      "bilibili_face-鸡腿": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/鸡腿.png",
+      "bilibili_face-黑洞": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/黑洞.png",
+      "Majotabi-367516718": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516718.png",
+      "Majotabi-367516719": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516719.png",
+      "Majotabi-367516720": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516720.png",
+      "Majotabi-367516721": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516721.png",
+      "Majotabi-367516722": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516722.png",
+      "Majotabi-367516723": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516723.png",
+      "Majotabi-367516724": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516724.png",
+      "Majotabi-367516725": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516725.png",
+      "Majotabi-367516726": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516726.png",
+      "Majotabi-367516727": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516727.png",
+      "Majotabi-367516728": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516728.png",
+      "Majotabi-367516729": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516729.png",
+      "Majotabi-367516730": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516730.png",
+      "Majotabi-367516731": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516731.png",
+      "Majotabi-367516732": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516732.png",
+      "Majotabi-367516733": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516733.png",
+      "Majotabi-367516734": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516734.png",
+      "Majotabi-367516735": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516735.png",
+      "Majotabi-367516736": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516736.png",
+      "Majotabi-367516737": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516737.png",
+      "Majotabi-367516738": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516738.png",
+      "Majotabi-367516739": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516739.png",
+      "Majotabi-367516740": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516740.png",
+      "Majotabi-367516741": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516741.png",
+      "Majotabi-367516742": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516742.png",
+      "Majotabi-367516743": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516743.png",
+      "Majotabi-367516744": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516744.png",
+      "Majotabi-367516745": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516745.png",
+      "Majotabi-367516746": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516746.png",
+      "Majotabi-367516747": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516747.png",
+      "Majotabi-367516748": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516748.png",
+      "Majotabi-367516749": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516749.png",
+      "Majotabi-367516750": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516750.png",
+      "Majotabi-367516751": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516751.png",
+      "Majotabi-367516752": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516752.png",
+      "Majotabi-367516753": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516753.png",
+      "Majotabi-367516754": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516754.png",
+      "Majotabi-367516755": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516755.png",
+      "Majotabi-367516756": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516756.png",
+      "Majotabi-367516757": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516757.png"
+      },
+      enableQQ: true,
+      path: window.location.pathname,
+    }
+
+    if (true) { 
+      initData.requiredFields= ('nick,mail'.split(','))
+    }
+    
+    if (false) {
+      const otherData = false
+      initData = Object.assign({}, initData, otherData)
+    }
+    
+    const valine = new Valine(initData)
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/gh/HCLonely/Valine@latest/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !true) {
+  if (true) btf.loadComment(document.querySelector('#vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script><script>function loadDisqus () {
+  var disqus_config = function () {
+    this.page.url = ''
+    this.page.identifier = 'bangumis/index.html'
+    this.page.title = '追番列表'
+  };
+
+  window.disqusReset = () => {
+    DISQUS.reset({
+      reload: true,
+      config: disqus_config
+    })
+  }
+
+  if (window.DISQUS) disqusReset()
+  else {
+    (function() { 
+      var d = document, s = d.createElement('script');
+      s.src = 'https://.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  }
+}
+
+if ('Valine' === 'Disqus' || !true) {
+  if (true) btf.loadComment(document.getElementById('disqus_thread'), loadDisqus)
+  else loadDisqus()
+} else {
+  function loadOtherComment () {
+    loadDisqus()
+  }
+}
+</script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><div class="aplayer no-destroy" data-id="920308564" data-server="netease" data-type="playlist" data-fixed="true" data-mini="true" data-listFolded="false" data-order="random" data-preload="none" data-autoplay="false" muted></div><script>setInterval(()=>{let create_time=Math.round(new Date("2021-01-01 00:00:00").getTime()/1000);let timestamp=Math.round((new Date().getTime()+8*60*60*1000)/1000);let second=timestamp-create_time;let time=new Array(0,0,0,0,0);if(second>=365*24*3600){time[0]=parseInt(second/(365*24*3600));second%=365*24*3600}if(second>=24*3600){time[1]=parseInt(second/(24*3600));second%=24*3600}if(second>=3600){time[2]=parseInt(second/3600);second%=3600}if(second>=60){time[3]=parseInt(second/60);second%=60}if(second>0){time[4]=second}currentTimeHtml='小破站已经安全运行 '+time[0]+' 年 '+time[1]+' 天 '+time[2]+' 时 '+time[3]+' 分 '+time[4]+' 秒';var elementById=document.getElementById('running-time');if(elementById){elementById.innerHTML=currentTimeHtml}},1000);</script><script src="/js/title.js"></script><script src="/js/calendar.js"></script><script src="/js/languages.js"></script><script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script><script src="/gitcalendar/js/gitcalendar.js"></script><script data-pjax aysnc src="https://cdn.jsdelivr.net/gh/zykjofficial/zykjofficial.github.io@master/js/ZYKJTools.js"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-nest.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = false;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-show-text.min.js" data-mobile="false" data-text="富强,民主,文明,和谐,自由,平等,公正,法治,爱国,敬业,诚信,友善,富强,民主,文明,和谐" data-fontsize="15px" data-random="false" async="async"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/gh/SerokSSR/cdn/meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = [
+  'title',
+  '#config_change',
+  '#body-wrap',
+  '#rightside-config-hide',
+  '#rightside-config-show',
+  '.js-pjax'
+]
+
+if (false) {
+  pjaxSelectors.unshift('meta[property="og:image"]', 'meta[property="og:title"]', 'meta[property="og:url"]')
+}
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"]):not([href="/music/"]):not([href="/no-pjax/"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: true,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  if (typeof gtag === 'function') {
+    gtag('config', 'HKLD5RYMQB', {'page_path': window.location.pathname});
+  }
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // Analytics
+  if (false) {
+    MtaH5.pgv()
+  }
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+
+document.addEventListener('pjax:send', function () {
+  typeof preloader === 'object' && preloader.initLoading()
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})</script><script>(function(){
+  const bp = document.createElement('script');
+  const curProtocol = window.location.protocol.split(':')[0];
+  if (curProtocol === 'https') {
+    bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+  }
+  else{
+    bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+  }
+  bp.dataset.pjax = ''
+  const s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(bp, s);
+})()</script></div></body></html>

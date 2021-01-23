@@ -1,0 +1,576 @@
+<!DOCTYPE html><html lang="zh_CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>集群搭建 | Jrebel</title><meta name="keywords" content="大数据，笔记"><meta name="author" content="Jrebel-i"><meta name="copyright" content="Jrebel-i"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta name="description" content="集群搭建  集群搭建：  1，创建atguigu用户 useradd atguigu passwd atguigu  2，设置hostname hostnamectl --static set-hostname hadoop102  3，关闭防火墙 systemctl stop firewalld systemctl disable firewalld  4，设置ip vim    &#x2F;etc&#x2F;s">
+<meta property="og:type" content="article">
+<meta property="og:title" content="集群搭建">
+<meta property="og:url" content="https://www.jrebe.com/posts/56e0c1a5/index.html">
+<meta property="og:site_name" content="Jrebel">
+<meta property="og:description" content="集群搭建  集群搭建：  1，创建atguigu用户 useradd atguigu passwd atguigu  2，设置hostname hostnamectl --static set-hostname hadoop102  3，关闭防火墙 systemctl stop firewalld systemctl disable firewalld  4，设置ip vim    &#x2F;etc&#x2F;s">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://myimg-jrebe.oss-cn-shenzhen.aliyuncs.com/img/b1.jpg">
+<meta property="article:published_time" content="2021-01-10T12:12:53.000Z">
+<meta property="article:modified_time" content="2021-01-10T12:12:53.000Z">
+<meta property="article:author" content="Jrebel-i">
+<meta property="article:tag" content="大数据，笔记">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://myimg-jrebe.oss-cn-shenzhen.aliyuncs.com/img/b1.jpg"><link rel="shortcut icon" href="/img/a2.jpg"><link rel="canonical" href="https://www.jrebe.com/posts/56e0c1a5/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//s4.cnzz.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="preconnect" href="//zz.bdstatic.com"/><meta name="google-site-verification" content="vTXhlUyXWAevHk5kfAOIeCf_bU8azYJgO1EDl6FqoFQ"/><meta name="baidu-site-verification" content="code-FGas11tgLy"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?06c5cec9a1f6f5c54312351f0f1e821f";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=HKLD5RYMQB"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'HKLD5RYMQB');
+</script><script async="async" data-pjax="data-pjax" src="https://s4.cnzz.com/z_stat.php?id=1279576358&amp;web_id=1279576358"></script><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  noticeOutdate: {"limitDay":365,"position":"top","messagePrev":"It has been","messageNext":"days since the last update, the content of the article may be outdated."},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: 'days',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"Author: Jrebel-i","link":"Link: ","source":"Source: Jrebel","info":"Copyright is owned by the author. For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source."}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"Traditional Chinese Activated Manually","cht_to_chs":"Simplified Chinese Activated Manually","day_to_night":"Dark Mode Activated Manually","night_to_day":"Light Mode Activated Manually","bgLight":"#49b1f5","bgDark":"#121212","position":"bottom-left"},
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: false,
+  isanchor: true
+};
+
+var saveToLocal = {
+  set: function setWithExpiry(key, value, ttl) {
+    const now = new Date()
+    const expiryDay = ttl * 86400000
+    const item = {
+      value: value,
+      expiry: now.getTime() + expiryDay,
+    }
+    localStorage.setItem(key, JSON.stringify(item))
+  },
+
+  get: function getWithExpiry(key) {
+    const itemStr = localStorage.getItem(key)
+
+    if (!itemStr) {
+      return undefined
+    }
+    const item = JSON.parse(itemStr)
+    const now = new Date()
+
+    if (now.getTime() > item.expiry) {
+      localStorage.removeItem(key)
+      return undefined
+    }
+    return item.value
+  }
+}
+
+// https://stackoverflow.com/questions/16839698/jquery-getscript-alternative-in-native-javascript
+const getScript = url => new Promise((resolve, reject) => {
+  const script = document.createElement('script')
+  script.src = url
+  script.async = true
+  script.onerror = reject
+  script.onload = script.onreadystatechange = function() {
+    const loadState = this.readyState
+    if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+    script.onload = script.onreadystatechange = null
+    resolve()
+  }
+  document.head.appendChild(script)
+})</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-01-10 20:12:53'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(function () {  window.activateDarkMode = function () {
+    document.documentElement.setAttribute('data-theme', 'dark')
+    if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+    }
+  }
+  window.activateLightMode = function () {
+    document.documentElement.setAttribute('data-theme', 'light')
+   if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+    }
+  }
+  const autoChangeMode = 'false'
+  const t = saveToLocal.get('theme')
+  if (autoChangeMode === '1') {
+    const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+    const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+    const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+    if (t === undefined) {
+      if (isLightMode) activateLightMode()
+      else if (isDarkMode) activateDarkMode()
+      else if (isNotSpecified || hasNoSupport) {
+        const now = new Date()
+        const hour = now.getHours()
+        const isNight = hour <= 6 || hour >= 18
+        isNight ? activateDarkMode() : activateLightMode()
+      }
+      window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+        if (saveToLocal.get('theme') === undefined) {
+          e.matches ? activateDarkMode() : activateLightMode()
+        }
+      })
+    } else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else if (autoChangeMode === '2') {
+    const now = new Date()
+    const hour = now.getHours()
+    const isNight = hour <= 6 || hour >= 18
+    if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+    else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else {
+    if (t === 'dark') activateDarkMode()
+    else if (t === 'light') activateLightMode()
+  }const asideStatus = saveToLocal.get('aside-status')
+if (asideStatus !== undefined) {
+   if (asideStatus === 'hide') {
+     document.documentElement.classList.add('hide-aside')
+   } else {
+     document.documentElement.classList.remove('hide-aside')
+   }
+}const fontSizeVal = saveToLocal.get('global-font-size')
+if (fontSizeVal !== undefined) {
+  document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+}})()</script><style type="text/css">#toggle-sidebar {bottom: 80px}</style><link rel="stylesheet" href="/css/badge.css"><link rel="stylesheet" href="/css/tag.css"><link rel="stylesheet" href="/css/aplayerdiy.css"><link rel="stylesheet" href="/css/mousediy.css"><!--脚本--><script src="/live2d-widget/autoload.js"></script><!--script(src=’https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js‘)--><meta name="generator" content="Hexo 5.3.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">Loading...</div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="/img/a2.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">2</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 娱乐</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/bangumis/"><i class="fa-fw fas fa-tv"></i><span> 番剧</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://myimg-jrebe.oss-cn-shenzhen.aliyuncs.com/img/b1.jpg)"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Jrebel</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 娱乐</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/bangumis/"><i class="fa-fw fas fa-tv"></i><span> 番剧</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">集群搭建</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2021-01-10T12:12:53.000Z" title="Created 2021-01-10 20:12:53">2021-01-10</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2021-01-10T12:12:53.000Z" title="Updated 2021-01-10 20:12:53">2021-01-10</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">805</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>3min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="集群搭建"><a class="markdownIt-Anchor" href="#集群搭建"></a> 集群搭建</h1>
+<h1 id="集群搭建-2"><a class="markdownIt-Anchor" href="#集群搭建-2"></a> <strong>集群搭建：</strong></h1>
+<h3 id="1创建atguigu用户"><a class="markdownIt-Anchor" href="#1创建atguigu用户"></a> <strong>1，创建atguigu用户</strong></h3>
+<p><code>useradd atguigu</code></p>
+<p><code>passwd atguigu</code></p>
+<h3 id="2设置hostname"><a class="markdownIt-Anchor" href="#2设置hostname"></a> <strong>2，设置hostname</strong></h3>
+<p><code>hostnamectl --static set-hostname hadoop102</code></p>
+<h3 id="3关闭防火墙"><a class="markdownIt-Anchor" href="#3关闭防火墙"></a> <strong>3，关闭防火墙</strong></h3>
+<p><code>systemctl stop firewalld</code></p>
+<p><code>systemctl disable firewalld</code></p>
+<h3 id="4设置ip"><a class="markdownIt-Anchor" href="#4设置ip"></a> <strong>4，设置ip</strong></h3>
+<p><code>vim    /etc/sysconfig/network-scripts/ifcfg-ens33</code></p>
+<p>修改：</p>
+<p><code>BOOTPROTO=static</code></p>
+<p><code>ONBOOT=yes</code></p>
+<p>添加</p>
+<p><code>IPADDR=192.168.1.102</code></p>
+<p><code>GATEWAY=192.168.1.2</code></p>
+<p><code>DNS1=192.168.1.2</code></p>
+<p><code>DNS2=114.114.114.114</code></p>
+<h3 id="5设置映射"><a class="markdownIt-Anchor" href="#5设置映射"></a> <strong>5，设置映射</strong></h3>
+<p><code>vim /etc/hosts</code></p>
+<p><code>192.168.1.102 hadoop102</code></p>
+<p><code>192.168.1.103 hadoop103</code></p>
+<p><code>192.168.1.104 hadoop104</code></p>
+<h3 id="6创建文件夹并修改权限"><a class="markdownIt-Anchor" href="#6创建文件夹并修改权限"></a> <strong>6，创建文件夹，并修改权限</strong></h3>
+<p><code>mkdir /opt/software</code></p>
+<p><code>mkdir /opt/module</code></p>
+<p><code>chown atguigu:atguigu /opt/software</code></p>
+<p><code>chown atguigu:atguigu /opt/module</code></p>
+<h3 id="7设置sudo权限为免密"><a class="markdownIt-Anchor" href="#7设置sudo权限为免密"></a> <strong>7，设置sudo权限为免密：</strong></h3>
+<p><code>atguigu ALL=(ALL) NOPASSWD: ALL</code></p>
+<h3 id="-复制虚拟机-"><a class="markdownIt-Anchor" href="#-复制虚拟机-"></a> -------复制虚拟机-------</h3>
+<h3 id="8修改ip以及hostname"><a class="markdownIt-Anchor" href="#8修改ip以及hostname"></a> <strong>8，修改ip以及hostname</strong></h3>
+<p>修改ip：</p>
+<p><code>vim /etc/sysconfig/network-scripts/ifcfg-ens33</code></p>
+<p><code>IPADDR=192.168.1.103</code></p>
+<p><code>IPADDR=192.168.1.104</code></p>
+<p>修改hostname：</p>
+<p><code>hostnamectl --static set-hostname hadoop103</code></p>
+<p><code>hostnamectl --static set-hostname hadoop104</code></p>
+<h3 id="9所有root以及atguigu都要设置ssh免密"><a class="markdownIt-Anchor" href="#9所有root以及atguigu都要设置ssh免密"></a> 9，<strong>所有root以及atguigu都要设置ssh免密</strong></h3>
+<p><code>ssh-keygen</code></p>
+<p>root用户:</p>
+<p><code>ssh-copy-id root@hadoop102</code></p>
+<p>atguigu用户：</p>
+<p><code>ssh-copy-id atguigu@hadoop102</code></p>
+<h3 id="10安装vim"><a class="markdownIt-Anchor" href="#10安装vim"></a> <strong>10，安装vim</strong></h3>
+<h3 id="11设置命令行界面设置为3"><a class="markdownIt-Anchor" href="#11设置命令行界面设置为3"></a> <strong>11，设置命令行界面（设置为3）</strong></h3>
+<p><code>systemctl get-default         //获取当前的启动项</code></p>
+<p><code>systemctl set-default multi-user.target</code></p>
+<h3 id="12设置分发脚本"><a class="markdownIt-Anchor" href="#12设置分发脚本"></a> <strong>12，设置分发脚本</strong></h3>
+<p>12.1，安装rsync</p>
+<p><code>sudo yum install -y rsync</code><br />
+12.2，xsync脚本</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">#! &#x2F;bin&#x2F;bash</span><br><span class="line">#1、判断是否传入待同步的文件&#x2F;目录</span><br><span class="line">if [ $# -lt 1 ]</span><br><span class="line">then</span><br><span class="line">	echo &quot;必须传入一个文件&#x2F;目录&quot;</span><br><span class="line">	exit</span><br><span class="line">fi</span><br><span class="line">#2、遍历待同步的多个文件&#x2F;目录</span><br><span class="line">for fileOrDir in $@</span><br><span class="line">do</span><br><span class="line">#3、判断当前待同步的文件&#x2F;目录是否存在</span><br><span class="line">	#-d: 判断是否为目录</span><br><span class="line">	#-f: 判断是否为文件</span><br><span class="line">	#-e: 判断是否存在</span><br><span class="line">	if [ -e $fileOrDir ]</span><br><span class="line">	then</span><br><span class="line">	#4、获取待同步的文件&#x2F;目录的父目录、文件名&#x2F;最后一个目录名</span><br><span class="line">		pdir&#x3D;$(cd $(dirname $fileOrDir);pwd)</span><br><span class="line">		fname&#x3D;$(basename $fileOrDir)</span><br><span class="line">		for host in hadoop102 hadoop103 hadoop104</span><br><span class="line">		do</span><br><span class="line">			echo &quot;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;$host&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&quot;</span><br><span class="line">			#5、在其他机器上创建父目录</span><br><span class="line">			ssh $host &quot;mkdir -p $pdir&quot;</span><br><span class="line">			#6、同步文件&#x2F;目录</span><br><span class="line">			rsync -av $pdir&#x2F;$fname $host:$pdir</span><br><span class="line">		done</span><br><span class="line">	fi</span><br><span class="line">done</span><br><span class="line"># cd &#x2F;opt&#x2F;module&#x2F;xx</span><br><span class="line">#xsync a.txt &#x2F;opt&#x2F;module&#x2F;xx&#x2F;b.txt</span><br></pre></td></tr></table></figure>
+<p>-av 打印进度</p>
+<p><strong>12.3，在home家目录下创建一个bin目录并编写脚本（平时用于分发atguigu账号下的文件，如：module或者software文件夹下的）</strong></p>
+<p><code>cd ~</code></p>
+<p><code>mkdir bin</code></p>
+<p><code>vim xsync</code></p>
+<p><code>chmod +x xsync</code><br />
+<strong>12.4，将文件复制一份到root用户的/bin目录下（平时用于分发root账号下的文件，如：/etc/profile.d/my_env.sh）</strong></p>
+<p><code>sudo cp /home/atguigu/bin/xsync /bin/</code></p>
+<h3 id="13安装lrzsz用于传输文件"><a class="markdownIt-Anchor" href="#13安装lrzsz用于传输文件"></a> <strong>13，安装lrzsz，用于传输文件</strong></h3>
+<p><code>sudo yum install lrzsz</code><br />
+<strong>使用rz命令上传文件，sz 文件名 命令下载文件</strong></p>
+<h1 id="安装jdk"><a class="markdownIt-Anchor" href="#安装jdk"></a> <strong>安装JDK</strong></h1>
+<h3 id="1检查linux中是否存在jdk如果存在就将其移除"><a class="markdownIt-Anchor" href="#1检查linux中是否存在jdk如果存在就将其移除"></a> <strong>1，检查Linux中是否存在jdk，如果存在就将其移除</strong></h3>
+<p><code>sudo rpm -qa | grep -i java | xargs -n1sudo rpm -e --nodeps</code></p>
+<h3 id="2将文件上传至software文件夹并解压至module文件夹并改名为java"><a class="markdownIt-Anchor" href="#2将文件上传至software文件夹并解压至module文件夹并改名为java"></a> <strong>2，将文件上传至software文件夹，并解压至module文件夹，并改名为java</strong></h3>
+<p><code>tar -zxvf /opt/software/jdk-8u212-linux-x64.tar.gz  /opt/module/</code></p>
+<p><code>mv /opt/module/jdk1.8.0_212 java</code></p>
+<h3 id="3设置环境变量"><a class="markdownIt-Anchor" href="#3设置环境变量"></a> <strong>3，设置环境变量</strong></h3>
+<p><code>export JAVA_HOME=/opt/module/java</code></p>
+<p><code>export PATH=$PATH:$JAVA_HOME/bin</code></p>
+<h3 id="4分发java文件"><a class="markdownIt-Anchor" href="#4分发java文件"></a> <strong>4，分发java文件</strong></h3>
+<p><code>xsync /opt/module/java/</code></p>
+<h3 id="5分发全局配置文件"><a class="markdownIt-Anchor" href="#5分发全局配置文件"></a> <strong>5，分发全局配置文件</strong></h3>
+<p><code>sudo xsync /etc/profile.d/my_env.sh</code></p>
+<p>注意：source 一下</p>
+<p><code>source /etc/profile.d/my_env.sh</code></p>
+<p>注意：不要在root用户连接的情况下，使用sudo去连接atguigu用户然后再进行操作atguigu这个用户</p>
+</article><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://myimg-jrebe.oss-cn-shenzhen.aliyuncs.com/img/b1.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> Donate<div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wechat.jpg" target="_blank"><img class="post-qr-code-img" src="/img/wechat.jpg" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="/img/alipay.jpg" target="_blank"><img class="post-qr-code-img" src="/img/alipay.jpg" alt="alipay"/></a><div class="post-qr-code-desc">alipay</div></li></ul></div></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/posts/56e0b1a5/"><img class="next-cover" src="https://myimg-jrebe.oss-cn-shenzhen.aliyuncs.com/img/201025115Q8-1.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">Kafka总结</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> Comment</span></div><div id="comment-switch"><span class="first-comment">Valine</span><span class="switch-btn"></span><span class="second-comment">Disqus</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div><div><div id="disqus_thread"></div></div></div></div></div><div class="aside_content" id="aside_content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="card-content"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA"><span class="toc-number">1.</span> <span class="toc-text"> 集群搭建</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA-2"><span class="toc-number">2.</span> <span class="toc-text"> 集群搭建：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E5%88%9B%E5%BB%BAatguigu%E7%94%A8%E6%88%B7"><span class="toc-number">2.0.1.</span> <span class="toc-text"> 1，创建atguigu用户</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E8%AE%BE%E7%BD%AEhostname"><span class="toc-number">2.0.2.</span> <span class="toc-text"> 2，设置hostname</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3%E5%85%B3%E9%97%AD%E9%98%B2%E7%81%AB%E5%A2%99"><span class="toc-number">2.0.3.</span> <span class="toc-text"> 3，关闭防火墙</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4%E8%AE%BE%E7%BD%AEip"><span class="toc-number">2.0.4.</span> <span class="toc-text"> 4，设置ip</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5%E8%AE%BE%E7%BD%AE%E6%98%A0%E5%B0%84"><span class="toc-number">2.0.5.</span> <span class="toc-text"> 5，设置映射</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6%E5%88%9B%E5%BB%BA%E6%96%87%E4%BB%B6%E5%A4%B9%E5%B9%B6%E4%BF%AE%E6%94%B9%E6%9D%83%E9%99%90"><span class="toc-number">2.0.6.</span> <span class="toc-text"> 6，创建文件夹，并修改权限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7%E8%AE%BE%E7%BD%AEsudo%E6%9D%83%E9%99%90%E4%B8%BA%E5%85%8D%E5%AF%86"><span class="toc-number">2.0.7.</span> <span class="toc-text"> 7，设置sudo权限为免密：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#-%E5%A4%8D%E5%88%B6%E8%99%9A%E6%8B%9F%E6%9C%BA-"><span class="toc-number">2.0.8.</span> <span class="toc-text"> -------复制虚拟机-------</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8%E4%BF%AE%E6%94%B9ip%E4%BB%A5%E5%8F%8Ahostname"><span class="toc-number">2.0.9.</span> <span class="toc-text"> 8，修改ip以及hostname</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9%E6%89%80%E6%9C%89root%E4%BB%A5%E5%8F%8Aatguigu%E9%83%BD%E8%A6%81%E8%AE%BE%E7%BD%AEssh%E5%85%8D%E5%AF%86"><span class="toc-number">2.0.10.</span> <span class="toc-text"> 9，所有root以及atguigu都要设置ssh免密</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10%E5%AE%89%E8%A3%85vim"><span class="toc-number">2.0.11.</span> <span class="toc-text"> 10，安装vim</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11%E8%AE%BE%E7%BD%AE%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%95%8C%E9%9D%A2%E8%AE%BE%E7%BD%AE%E4%B8%BA3"><span class="toc-number">2.0.12.</span> <span class="toc-text"> 11，设置命令行界面（设置为3）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12%E8%AE%BE%E7%BD%AE%E5%88%86%E5%8F%91%E8%84%9A%E6%9C%AC"><span class="toc-number">2.0.13.</span> <span class="toc-text"> 12，设置分发脚本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#13%E5%AE%89%E8%A3%85lrzsz%E7%94%A8%E4%BA%8E%E4%BC%A0%E8%BE%93%E6%96%87%E4%BB%B6"><span class="toc-number">2.0.14.</span> <span class="toc-text"> 13，安装lrzsz，用于传输文件</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%89%E8%A3%85jdk"><span class="toc-number">3.</span> <span class="toc-text"> 安装JDK</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E6%A3%80%E6%9F%A5linux%E4%B8%AD%E6%98%AF%E5%90%A6%E5%AD%98%E5%9C%A8jdk%E5%A6%82%E6%9E%9C%E5%AD%98%E5%9C%A8%E5%B0%B1%E5%B0%86%E5%85%B6%E7%A7%BB%E9%99%A4"><span class="toc-number">3.0.1.</span> <span class="toc-text"> 1，检查Linux中是否存在jdk，如果存在就将其移除</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E5%B0%86%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E8%87%B3software%E6%96%87%E4%BB%B6%E5%A4%B9%E5%B9%B6%E8%A7%A3%E5%8E%8B%E8%87%B3module%E6%96%87%E4%BB%B6%E5%A4%B9%E5%B9%B6%E6%94%B9%E5%90%8D%E4%B8%BAjava"><span class="toc-number">3.0.2.</span> <span class="toc-text"> 2，将文件上传至software文件夹，并解压至module文件夹，并改名为java</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3%E8%AE%BE%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="toc-number">3.0.3.</span> <span class="toc-text"> 3，设置环境变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4%E5%88%86%E5%8F%91java%E6%96%87%E4%BB%B6"><span class="toc-number">3.0.4.</span> <span class="toc-text"> 4，分发java文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5%E5%88%86%E5%8F%91%E5%85%A8%E5%B1%80%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-number">3.0.5.</span> <span class="toc-text"> 5，分发全局配置文件</span></a></li></ol></li></ol></li></ol></div></div></div></div><!--if theme.aside.card_map//!=partial('includes/widget/card_map', {}, {cache:theme.fragment_cache})--><!--if theme.aside.card_pixiv//!=partial('includes/widget/card_pixiv', {}, {cache:theme.fragment_cache})--><!--if theme.aside.card_calendar//!=partial('includes/widget/card_calendar', {}, {cache:theme.fragment_cache})--></div></main><footer id="footer" style="background: rgba(255,255,255,0.1)"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By Jrebel-i</div><div class="footer_custom_text">本网站由<a  target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral"><img class="icp-icon"  src="https://myimg-jrebe.oss-cn-shenzhen.aliyuncs.com/img/又拍云_logo6.png"></a>提供CND加速/云存储服务</div><div id="running-time"></div><div class="github-badge"><a style="color: #fff" rel="license" href="https://hexo.io/" target="_blank" title="由 Hexo 强力驱动"><span class="badge-subject">Powered</span><span class="badge-value bg-blue">Hexo</span></a><a style="color: #fff" rel="license" href="https://gitee.com/" target="_blank" title="静态网页托管于 GitHub Pages 和 Coding Pages 和 Gitee Pages"><span class="badge-subject">Hosted</span><span class="badge-value bg-brightgreen">GitHub & Coding & Gitee</span></a><a style="color: #fff" rel="license" href="https://www.jsdelivr.com/" target="_blank" title="jsDelivr 提供 CDN 加速服务"><span class="badge-subject">CDN</span><span class="badge-value bg-orange">jsDelivr</span></a><a style="color: #fff" rel="license" href="https://jerryc.me" target="_blank" title="站点使用 Butterfly主题"><span class="badge-subject">Theme</span><span class="badge-value bg-blue">Butterfly</span></a><a style="color: #fff" rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="本站点采用知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议进行许可"><span class="badge-subject"><i class="fa fa-copyright"></i></span><span class="badge-value bg-lightgrey">BY-NC-SA 4.0</span></a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="font-plus" type="button" title="Increase font size"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="Decrease font size"><i class="fas fa-minus"></i></button><button id="translateLink" type="button" title="Toggle Between Traditional Chinese And Simplified Chinese">简</button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="chat_btn" type="button" title="rightside.chat_btn"><i class="fas fa-sms"></i></button><a id="to_comment" href="#post-comment" title="Scroll To Comments"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',()=> {preloader.endLoading()})</script><div class="js-pjax"><script>if (document.getElementsByClassName('mermaid').length) {
+  if (window.mermaidJsLoad) mermaid.init()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js').then(() => {
+      window.mermaidJsLoad = true
+      mermaid.initialize({
+        theme: 'default',
+      })
+      true && mermaid.init()
+    })
+  }
+}</script><script>function loadValine () {
+  function initValine () {
+    let initData = {
+      el: '#vcomment',
+      appId: 'FNYRrkthB8eNbPsEsxg4wpOY-MdYXbMMI',
+      appKey: '9mBAkYJCqPoHuIyaFefeIMk9',
+      placeholder: '建议使用QQ邮箱，评论头像采用QQ头像',
+      avatar: 'monsterid',
+      meta: 'nick,mail,link'.split(','),
+      pageSize: '10',
+      lang: 'zh-CN',
+      recordIP: false,
+      serverURLs: '',
+      emojiCDN: '',
+      emojiMaps: {
+      "tv_摆动": "https://cdn.jsdelivr.net/gh/lete114/CDN/emoji/1.gif",
+      "tv_蔑笑": "https://cdn.jsdelivr.net/gh/lete114/CDN/emoji/001.png",
+      "tv_礼物": "https://cdn.jsdelivr.net/gh/lete114/CDN/emoji/002.png",
+      "tv_震惊": "https://cdn.jsdelivr.net/gh/lete114/CDN/emoji/003.png",
+      "tv_膜拜": "https://cdn.jsdelivr.net/gh/lete114/CDN/emoji/104.jpg",
+      "tv_哒哒哒": "https://cdn.jsdelivr.net/gh/lete114/CDN/emoji/106.gif",
+      "tv_一杯热茶": "https://cdn.jsdelivr.net/gh/lete114/CDN/emoji/004.png",
+      "tv_疑问": "https://cdn.jsdelivr.net/gh/lete114/CDN/emoji/005.png",
+      "tv_气氛": "https://cdn.jsdelivr.net/gh/lete114/CDN/emoji/006.png",
+      "bilibili_face-2020": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/2020.png",
+      "bilibili_face-doge": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/doge.png",
+      "bilibili_face-ok": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/ok.png",
+      "bilibili_face-yes": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/yes.png",
+      "bilibili_face-偷笑": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/偷笑.png",
+      "bilibili_face-傲娇": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/傲娇.png",
+      "bilibili_face-再见": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/再见.png",
+      "bilibili_face-冷": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/冷.png",
+      "bilibili_face-口罩": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/口罩.png",
+      "bilibili_face-可乐": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/可乐.png",
+      "bilibili_face-吃瓜": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/吃瓜.png",
+      "bilibili_face-吐": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/吐.png",
+      "bilibili_face-吓": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/吓.png",
+      "bilibili_face-呆": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/呆.png",
+      "bilibili_face-呲牙": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/呲牙.png",
+      "bilibili_face-哈欠": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/哈欠.png",
+      "bilibili_face-响指": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/响指.png",
+      "bilibili_face-喜极而泣": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/喜极而泣.png",
+      "bilibili_face-喜欢": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/喜欢.png",
+      "bilibili_face-嘘声": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/嘘声.png",
+      "bilibili_face-囧": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/囧.png",
+      "bilibili_face-大哭": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/大哭.png",
+      "bilibili_face-大笑": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/大笑.png",
+      "bilibili_face-大闹": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/大闹.png",
+      "bilibili_face-奋斗": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/奋斗.png",
+      "bilibili_face-奸笑": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/奸笑.png",
+      "bilibili_face-妙啊": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/妙啊.png",
+      "bilibili_face-委屈": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/委屈.png",
+      "bilibili_face-嫌弃": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/嫌弃.png",
+      "bilibili_face-害羞": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/害羞.png",
+      "bilibili_face-寒冷": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/寒冷.png",
+      "bilibili_face-尴尬": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/尴尬.png",
+      "bilibili_face-开心": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/开心.png",
+      "bilibili_face-弹弹堂": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/弹弹堂.png",
+      "bilibili_face-微微笑": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/微微笑.png",
+      "bilibili_face-微笑": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/微笑.png",
+      "bilibili_face-思考": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/思考.png",
+      "bilibili_face-惊呆了": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/惊呆了.png",
+      "bilibili_face-惊喜": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/惊喜.png",
+      "bilibili_face-惊讶": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/惊讶.png",
+      "bilibili_face-打call": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/打call.png",
+      "bilibili_face-抠鼻": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/抠鼻.png",
+      "bilibili_face-抱拳": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/抱拳.png",
+      "bilibili_face-拜托": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/拜托.png",
+      "bilibili_face-拥抱": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/拥抱.png",
+      "bilibili_face-捂脸": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/捂脸.png",
+      "bilibili_face-撇嘴": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/撇嘴.png",
+      "bilibili_face-支持": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/支持.png",
+      "bilibili_face-无奈": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/无奈.png",
+      "bilibili_face-无语": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/无语.png",
+      "bilibili_face-期待": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/期待.png",
+      "bilibili_face-武汉加油": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/武汉加油.png",
+      "bilibili_face-滑稽": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/滑稽.png",
+      "bilibili_face-灵魂出窍": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/灵魂出窍.png",
+      "bilibili_face-点赞": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/点赞.png",
+      "bilibili_face-爱心": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/爱心.png",
+      "bilibili_face-生气": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/生气.png",
+      "bilibili_face-生病": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/生病.png",
+      "bilibili_face-画风突变": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/画风突变.png",
+      "bilibili_face-疑问": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/疑问.png",
+      "bilibili_face-疼": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/疼.png",
+      "bilibili_face-白眼": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/白眼.png",
+      "bilibili_face-福": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/福.png",
+      "bilibili_face-福到了": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/福到了.png",
+      "bilibili_face-笑哭": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/笑哭.png",
+      "bilibili_face-肌肉": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/肌肉.png",
+      "bilibili_face-脸红": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/脸红.png",
+      "bilibili_face-调皮": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/调皮.png",
+      "bilibili_face-跪": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/跪.png",
+      "bilibili_face-酷": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/酷.png",
+      "bilibili_face-酸了": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/酸了.png",
+      "bilibili_face-锦鲤": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/锦鲤.png",
+      "bilibili_face-阴险": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/阴险.png",
+      "bilibili_face-难过": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/难过.png",
+      "bilibili_face-鸡腿": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/鸡腿.png",
+      "bilibili_face-黑洞": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/黑洞.png",
+      "Majotabi-367516718": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516718.png",
+      "Majotabi-367516719": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516719.png",
+      "Majotabi-367516720": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516720.png",
+      "Majotabi-367516721": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516721.png",
+      "Majotabi-367516722": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516722.png",
+      "Majotabi-367516723": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516723.png",
+      "Majotabi-367516724": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516724.png",
+      "Majotabi-367516725": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516725.png",
+      "Majotabi-367516726": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516726.png",
+      "Majotabi-367516727": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516727.png",
+      "Majotabi-367516728": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516728.png",
+      "Majotabi-367516729": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516729.png",
+      "Majotabi-367516730": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516730.png",
+      "Majotabi-367516731": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516731.png",
+      "Majotabi-367516732": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516732.png",
+      "Majotabi-367516733": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516733.png",
+      "Majotabi-367516734": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516734.png",
+      "Majotabi-367516735": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516735.png",
+      "Majotabi-367516736": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516736.png",
+      "Majotabi-367516737": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516737.png",
+      "Majotabi-367516738": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516738.png",
+      "Majotabi-367516739": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516739.png",
+      "Majotabi-367516740": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516740.png",
+      "Majotabi-367516741": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516741.png",
+      "Majotabi-367516742": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516742.png",
+      "Majotabi-367516743": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516743.png",
+      "Majotabi-367516744": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516744.png",
+      "Majotabi-367516745": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516745.png",
+      "Majotabi-367516746": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516746.png",
+      "Majotabi-367516747": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516747.png",
+      "Majotabi-367516748": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516748.png",
+      "Majotabi-367516749": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516749.png",
+      "Majotabi-367516750": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516750.png",
+      "Majotabi-367516751": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516751.png",
+      "Majotabi-367516752": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516752.png",
+      "Majotabi-367516753": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516753.png",
+      "Majotabi-367516754": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516754.png",
+      "Majotabi-367516755": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516755.png",
+      "Majotabi-367516756": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516756.png",
+      "Majotabi-367516757": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516757.png"
+      },
+      enableQQ: true,
+      path: window.location.pathname,
+    }
+
+    if (true) { 
+      initData.requiredFields= ('nick,mail'.split(','))
+    }
+    
+    if (false) {
+      const otherData = false
+      initData = Object.assign({}, initData, otherData)
+    }
+    
+    const valine = new Valine(initData)
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/gh/HCLonely/Valine@latest/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !true) {
+  if (true) btf.loadComment(document.querySelector('#vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script><script>function loadDisqus () {
+  var disqus_config = function () {
+    this.page.url = 'https://www.jrebe.com/posts/56e0c1a5/'
+    this.page.identifier = 'posts/56e0c1a5/'
+    this.page.title = '集群搭建'
+  };
+
+  window.disqusReset = () => {
+    DISQUS.reset({
+      reload: true,
+      config: disqus_config
+    })
+  }
+
+  if (window.DISQUS) disqusReset()
+  else {
+    (function() { 
+      var d = document, s = d.createElement('script');
+      s.src = 'https://.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  }
+}
+
+if ('Valine' === 'Disqus' || !true) {
+  if (true) btf.loadComment(document.getElementById('disqus_thread'), loadDisqus)
+  else loadDisqus()
+} else {
+  function loadOtherComment () {
+    loadDisqus()
+  }
+}
+</script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><div class="aplayer no-destroy" data-id="920308564" data-server="netease" data-type="playlist" data-fixed="true" data-mini="true" data-listFolded="false" data-order="random" data-preload="none" data-autoplay="false" muted></div><script>setInterval(()=>{let create_time=Math.round(new Date("2021-01-01 00:00:00").getTime()/1000);let timestamp=Math.round((new Date().getTime()+8*60*60*1000)/1000);let second=timestamp-create_time;let time=new Array(0,0,0,0,0);if(second>=365*24*3600){time[0]=parseInt(second/(365*24*3600));second%=365*24*3600}if(second>=24*3600){time[1]=parseInt(second/(24*3600));second%=24*3600}if(second>=3600){time[2]=parseInt(second/3600);second%=3600}if(second>=60){time[3]=parseInt(second/60);second%=60}if(second>0){time[4]=second}currentTimeHtml='小破站已经安全运行 '+time[0]+' 年 '+time[1]+' 天 '+time[2]+' 时 '+time[3]+' 分 '+time[4]+' 秒';var elementById=document.getElementById('running-time');if(elementById){elementById.innerHTML=currentTimeHtml}},1000);</script><script src="/js/title.js"></script><script src="/js/calendar.js"></script><script src="/js/languages.js"></script><script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script><script src="/gitcalendar/js/gitcalendar.js"></script><script data-pjax aysnc src="https://cdn.jsdelivr.net/gh/zykjofficial/zykjofficial.github.io@master/js/ZYKJTools.js"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-nest.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = false;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-show-text.min.js" data-mobile="false" data-text="富强,民主,文明,和谐,自由,平等,公正,法治,爱国,敬业,诚信,友善,富强,民主,文明,和谐" data-fontsize="15px" data-random="false" async="async"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/gh/SerokSSR/cdn/meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = [
+  'title',
+  '#config_change',
+  '#body-wrap',
+  '#rightside-config-hide',
+  '#rightside-config-show',
+  '.js-pjax'
+]
+
+if (false) {
+  pjaxSelectors.unshift('meta[property="og:image"]', 'meta[property="og:title"]', 'meta[property="og:url"]')
+}
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"]):not([href="/music/"]):not([href="/no-pjax/"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: true,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  if (typeof gtag === 'function') {
+    gtag('config', 'HKLD5RYMQB', {'page_path': window.location.pathname});
+  }
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // Analytics
+  if (false) {
+    MtaH5.pgv()
+  }
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+
+document.addEventListener('pjax:send', function () {
+  typeof preloader === 'object' && preloader.initLoading()
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})</script><script>(function(){
+  const bp = document.createElement('script');
+  const curProtocol = window.location.protocol.split(':')[0];
+  if (curProtocol === 'https') {
+    bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+  }
+  else{
+    bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+  }
+  bp.dataset.pjax = ''
+  const s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(bp, s);
+})()</script></div></body></html>
