@@ -222,7 +222,7 @@ if (fontSizeVal !== undefined) {
 <p><img src="https://i.loli.net/2021/02/21/5XEeQOB4HGkcLSV.png" alt="image-20210221001252546" /></p>
 <p>6，打开 Git Bash，输入下面命令:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh -T git@github.com</span><br></pre></td></tr></table></figure>
-<p><img src="https://i.loli.net/2021/02/21/wHsC5rfSPzMLKov.png" alt="image-20210221003103739" /></p>
+<p><img src="https://i.loli.net/2021/02/21/bmjsIAtlPYUOu3G.png" alt="image-20210221003103739" /></p>
 <p>7，打开 hexo 目录下的_config.yml 文件，修改最后一行的 deploy 配置信息：</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span></span><br><span class="line">    <span class="attr">github:</span> <span class="string">https://github.com/username/username.github.io.git</span> <span class="comment"># Git仓库地址，username是Github用户名</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">master</span> <span class="comment"># 部署到仓库的master(主)分支</span></span><br></pre></td></tr></table></figure>
 <p>8，执行命令，第一次push的时候需要你输入你的Github的用户名和密码</p>
