@@ -1,0 +1,177 @@
+- let option = theme.valine.option ? JSON.stringify(theme.valine.option) : false
+- let emojiMaps = '""'
+if site.data.valine
+  - emojiMaps = JSON.stringify(site.data.valine)
+
+script.
+  function loadValine () {
+    function initValine () {
+      let initData = {
+        el: '#vcomment',
+        appId: '#{theme.valine.appId}',
+        appKey: '#{theme.valine.appKey}',
+        placeholder: '#{theme.valine.placeholder}',
+        avatar: '#{theme.valine.avatar}',
+        meta: '#{theme.valine.guest_info }'.split(','),
+        pageSize: '#{theme.valine.pageSize}',
+        lang: '#{theme.valine.lang}',
+        recordIP: #{theme.valine.recordIP},
+        serverURLs: '#{theme.valine.serverURLs}',
+        emojiCDN: '#{theme.valine.emojiCDN}',
+        emojiMaps: {
+        "tv_摆动": "https://cdn.jsdelivr.net/gh/lete114/CDN/emoji/1.gif",
+        "tv_蔑笑": "https://cdn.jsdelivr.net/gh/lete114/CDN/emoji/001.png",
+        "tv_礼物": "https://cdn.jsdelivr.net/gh/lete114/CDN/emoji/002.png",
+        "tv_震惊": "https://cdn.jsdelivr.net/gh/lete114/CDN/emoji/003.png",
+        "tv_膜拜": "https://cdn.jsdelivr.net/gh/lete114/CDN/emoji/104.jpg",
+        "tv_哒哒哒": "https://cdn.jsdelivr.net/gh/lete114/CDN/emoji/106.gif",
+        "tv_一杯热茶": "https://cdn.jsdelivr.net/gh/lete114/CDN/emoji/004.png",
+        "tv_疑问": "https://cdn.jsdelivr.net/gh/lete114/CDN/emoji/005.png",
+        "tv_气氛": "https://cdn.jsdelivr.net/gh/lete114/CDN/emoji/006.png",
+        "bilibili_face-2020": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/2020.png",
+        "bilibili_face-doge": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/doge.png",
+        "bilibili_face-ok": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/ok.png",
+        "bilibili_face-yes": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/yes.png",
+        "bilibili_face-偷笑": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/偷笑.png",
+        "bilibili_face-傲娇": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/傲娇.png",
+        "bilibili_face-再见": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/再见.png",
+        "bilibili_face-冷": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/冷.png",
+        "bilibili_face-口罩": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/口罩.png",
+        "bilibili_face-可乐": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/可乐.png",
+        "bilibili_face-吃瓜": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/吃瓜.png",
+        "bilibili_face-吐": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/吐.png",
+        "bilibili_face-吓": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/吓.png",
+        "bilibili_face-呆": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/呆.png",
+        "bilibili_face-呲牙": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/呲牙.png",
+        "bilibili_face-哈欠": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/哈欠.png",
+        "bilibili_face-响指": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/响指.png",
+        "bilibili_face-喜极而泣": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/喜极而泣.png",
+        "bilibili_face-喜欢": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/喜欢.png",
+        "bilibili_face-嘘声": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/嘘声.png",
+        "bilibili_face-囧": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/囧.png",
+        "bilibili_face-大哭": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/大哭.png",
+        "bilibili_face-大笑": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/大笑.png",
+        "bilibili_face-大闹": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/大闹.png",
+        "bilibili_face-奋斗": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/奋斗.png",
+        "bilibili_face-奸笑": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/奸笑.png",
+        "bilibili_face-妙啊": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/妙啊.png",
+        "bilibili_face-委屈": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/委屈.png",
+        "bilibili_face-嫌弃": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/嫌弃.png",
+        "bilibili_face-害羞": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/害羞.png",
+        "bilibili_face-寒冷": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/寒冷.png",
+        "bilibili_face-尴尬": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/尴尬.png",
+        "bilibili_face-开心": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/开心.png",
+        "bilibili_face-弹弹堂": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/弹弹堂.png",
+        "bilibili_face-微微笑": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/微微笑.png",
+        "bilibili_face-微笑": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/微笑.png",
+        "bilibili_face-思考": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/思考.png",
+        "bilibili_face-惊呆了": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/惊呆了.png",
+        "bilibili_face-惊喜": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/惊喜.png",
+        "bilibili_face-惊讶": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/惊讶.png",
+        "bilibili_face-打call": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/打call.png",
+        "bilibili_face-抠鼻": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/抠鼻.png",
+        "bilibili_face-抱拳": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/抱拳.png",
+        "bilibili_face-拜托": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/拜托.png",
+        "bilibili_face-拥抱": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/拥抱.png",
+        "bilibili_face-捂脸": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/捂脸.png",
+        "bilibili_face-撇嘴": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/撇嘴.png",
+        "bilibili_face-支持": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/支持.png",
+        "bilibili_face-无奈": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/无奈.png",
+        "bilibili_face-无语": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/无语.png",
+        "bilibili_face-期待": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/期待.png",
+        "bilibili_face-武汉加油": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/武汉加油.png",
+        "bilibili_face-滑稽": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/滑稽.png",
+        "bilibili_face-灵魂出窍": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/灵魂出窍.png",
+        "bilibili_face-点赞": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/点赞.png",
+        "bilibili_face-爱心": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/爱心.png",
+        "bilibili_face-生气": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/生气.png",
+        "bilibili_face-生病": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/生病.png",
+        "bilibili_face-画风突变": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/画风突变.png",
+        "bilibili_face-疑问": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/疑问.png",
+        "bilibili_face-疼": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/疼.png",
+        "bilibili_face-白眼": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/白眼.png",
+        "bilibili_face-福": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/福.png",
+        "bilibili_face-福到了": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/福到了.png",
+        "bilibili_face-笑哭": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/笑哭.png",
+        "bilibili_face-肌肉": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/肌肉.png",
+        "bilibili_face-脸红": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/脸红.png",
+        "bilibili_face-调皮": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/调皮.png",
+        "bilibili_face-跪": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/跪.png",
+        "bilibili_face-酷": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/酷.png",
+        "bilibili_face-酸了": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/酸了.png",
+        "bilibili_face-锦鲤": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/锦鲤.png",
+        "bilibili_face-阴险": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/阴险.png",
+        "bilibili_face-难过": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/难过.png",
+        "bilibili_face-鸡腿": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/鸡腿.png",
+        "bilibili_face-黑洞": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/bilibili_face/黑洞.png",
+        "Majotabi-367516718": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516718.png",
+        "Majotabi-367516719": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516719.png",
+        "Majotabi-367516720": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516720.png",
+        "Majotabi-367516721": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516721.png",
+        "Majotabi-367516722": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516722.png",
+        "Majotabi-367516723": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516723.png",
+        "Majotabi-367516724": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516724.png",
+        "Majotabi-367516725": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516725.png",
+        "Majotabi-367516726": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516726.png",
+        "Majotabi-367516727": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516727.png",
+        "Majotabi-367516728": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516728.png",
+        "Majotabi-367516729": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516729.png",
+        "Majotabi-367516730": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516730.png",
+        "Majotabi-367516731": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516731.png",
+        "Majotabi-367516732": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516732.png",
+        "Majotabi-367516733": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516733.png",
+        "Majotabi-367516734": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516734.png",
+        "Majotabi-367516735": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516735.png",
+        "Majotabi-367516736": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516736.png",
+        "Majotabi-367516737": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516737.png",
+        "Majotabi-367516738": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516738.png",
+        "Majotabi-367516739": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516739.png",
+        "Majotabi-367516740": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516740.png",
+        "Majotabi-367516741": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516741.png",
+        "Majotabi-367516742": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516742.png",
+        "Majotabi-367516743": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516743.png",
+        "Majotabi-367516744": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516744.png",
+        "Majotabi-367516745": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516745.png",
+        "Majotabi-367516746": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516746.png",
+        "Majotabi-367516747": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516747.png",
+        "Majotabi-367516748": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516748.png",
+        "Majotabi-367516749": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516749.png",
+        "Majotabi-367516750": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516750.png",
+        "Majotabi-367516751": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516751.png",
+        "Majotabi-367516752": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516752.png",
+        "Majotabi-367516753": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516753.png",
+        "Majotabi-367516754": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516754.png",
+        "Majotabi-367516755": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516755.png",
+        "Majotabi-367516756": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516756.png",
+        "Majotabi-367516757": "https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/Majotabi/367516757.png"
+        },
+        enableQQ: #{theme.valine.enableQQ},
+        path: window.location.pathname,
+      }
+
+      if (!{Boolean(theme.valine.requiredFields)}) { 
+        initData.requiredFields= ('!{theme.valine.requiredFields}'.split(','))
+      }
+      
+      if (!{Boolean(option)}) {
+        const otherData = !{option}
+        initData = Object.assign({}, initData, otherData)
+      }
+      
+      const valine = new Valine(initData)
+    }
+
+    if (typeof Valine === 'function') initValine() 
+    else getScript('!{url_for(theme.CDN.valine)}').then(initValine)
+  }
+
+  if ('!{theme.comments.use[0]}' === 'Valine' || !!{theme.comments.lazyload}) {
+    if (!{theme.comments.lazyload}) btf.loadComment(document.querySelector('#vcomment'),loadValine)
+    else setTimeout(loadValine, 0)
+  } else {
+    function loadOtherComment () {
+      loadValine()
+    }
+  }
+  
+

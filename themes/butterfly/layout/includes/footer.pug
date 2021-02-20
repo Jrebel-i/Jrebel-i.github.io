@@ -1,0 +1,37 @@
+#footer-wrap
+  if theme.footer.owner.enable
+    - var now = new Date()
+    - var nowYear = now.getFullYear()
+    if theme.footer.owner.since && theme.footer.owner.since != nowYear
+      .copyright!= `&copy;${theme.footer.owner.since} - ${nowYear} By ${config.author}`
+    else
+      .copyright!= `&copy;${nowYear}&nbsp;<i style="color:#FF6A6A;animation: announ_animation 0.8s linear infinite;"class="fas fa-heart"></i> By ${config.author}`
+  if theme.footer.copyright
+    .framework-info
+      span= _p('footer.framework') + ' '
+      a(href='https://hexo.io')= 'Hexo'
+      span.footer-separator |
+      span= _p('footer.theme') + ' '
+      a(href='https://github.com/jerryc127/hexo-theme-butterfly')= 'Butterfly'
+  if theme.footer.custom_text
+    .footer_custom_text!=`${theme.footer.custom_text}`
+  #running-time
+  if theme.githubBadge.enable
+  .github-badge
+    a(style="color: #fff" rel="license" href="https://hexo.io/" target="_blank" title="由 Hexo 强力驱动")
+       span(class="badge-subject") Powered
+       span(class="badge-value bg-blue") Hexo
+    a(style="color: #fff" rel="license" href="https://gitee.com/" target="_blank" title="静态网页托管于 GitHub Pages 和 Coding Pages 和 Gitee Pages")
+       span(class="badge-subject") Hosted
+       span(class="badge-value bg-brightgreen") GitHub & Coding & Gitee
+    a(style="color: #fff" rel="license" href="https://www.jsdelivr.com/" target="_blank" title="jsDelivr 提供 CDN 加速服务")
+       span(class="badge-subject") CDN
+       span(class="badge-value bg-orange") jsDelivr
+    a(style="color: #fff" rel="license" href="https://jerryc.me" target="_blank" title="站点使用 Butterfly主题")
+       span(class="badge-subject") Theme
+       span(class="badge-value bg-blue") Butterfly
+    a(style="color: #fff" rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="本站点采用知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议进行许可")
+      span(class="badge-subject")
+         i(class="fa fa-copyright")
+      span(class="badge-value bg-lightgrey") BY-NC-SA 4.0
+
