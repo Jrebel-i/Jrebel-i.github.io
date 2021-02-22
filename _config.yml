@@ -212,9 +212,9 @@ deploy:
 - type: git
   repo: 
     github: https://github.com/jrebel-i/jrebel-i.github.io.git   # Git仓库地址，username是Github用户名
-- type: git
-  repo: 
-    coding: git@e.coding.net:jrebe/web/page.git
+# - type: git
+  # repo: 
+    # coding: git@e.coding.net:jrebe/web/page.git
 # - type: git
   # repo: 
     # gitee: https://gitee.com/Jrebel-i/jrebel-i.git	# 仓库的URL 
